@@ -1,3 +1,4 @@
+import TronHeader from '@/components/TronHeader';
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
 import PainPoints from '@/components/PainPoints';
@@ -10,7 +11,8 @@ import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-navy-950">
+    <main className="min-h-screen bg-black">
+      <TronHeader />
       <Navigation />
       <Hero />
       <PainPoints />

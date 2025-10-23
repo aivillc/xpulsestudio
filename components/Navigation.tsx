@@ -17,9 +17,9 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-2 left-0 right-0 z-40 transition-all duration-500 ${
         isScrolled
-          ? 'bg-navy-950/95 backdrop-blur-lg border-b border-navy-800 shadow-lg'
+          ? 'bg-black/80 backdrop-blur-xl border-b border-purple-500/20 shadow-2xl'
           : 'bg-transparent'
       }`}
     >
@@ -28,47 +28,49 @@ export default function Navigation() {
           {/* Logo */}
           <div className="flex items-center gap-2">
             <Image
-              src="/AIVILogo.png"
-              alt="AIVI Logo"
-              width={120}
-              height={50}
+              src="/AIVI-LOGO-W.png"
+              alt="AIVI"
+              width={140}
+              height={60}
               priority
-              className="h-8 w-auto"
+              className="h-10 w-auto transition-all duration-300 hover:scale-105"
             />
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-10">
             <a
               href="#features"
-              className="text-gray-300 hover:text-cyan-400 transition-colors text-sm font-medium"
+              className="text-white/80 hover:text-white transition-all duration-300 text-sm font-medium tracking-wide hover:text-purple-400 relative group"
             >
               Features
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-orange-500 group-hover:w-full transition-all duration-300" />
             </a>
             <a
               href="#solutions"
-              className="text-gray-300 hover:text-cyan-400 transition-colors text-sm font-medium"
+              className="text-white/80 hover:text-white transition-all duration-300 text-sm font-medium tracking-wide hover:text-purple-400 relative group"
             >
               Solutions
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-orange-500 group-hover:w-full transition-all duration-300" />
             </a>
             <a
               href="#integrations"
-              className="text-gray-300 hover:text-cyan-400 transition-colors text-sm font-medium"
+              className="text-white/80 hover:text-white transition-all duration-300 text-sm font-medium tracking-wide hover:text-purple-400 relative group"
             >
               Integrations
             </a>
             <a
               href="#contact"
-              className="px-5 py-2.5 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white text-sm font-semibold rounded-lg transition-all transform hover:scale-105 shadow-lg"
+              className="px-6 py-3 bg-gradient-to-r from-orange-500 via-purple-600 to-purple-700 hover:from-orange-600 hover:via-purple-700 hover:to-purple-800 text-white text-sm font-bold rounded-lg transition-all transform hover:scale-105 shadow-lg shadow-purple-500/50 uppercase tracking-wider"
             >
               Get Started
             </a>
           </div>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden text-gray-300 hover:text-white">
+          <button className="md:hidden text-white hover:text-purple-400 transition-colors">
             <svg
-              className="w-6 h-6"
+              className="w-7 h-7"
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"

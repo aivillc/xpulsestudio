@@ -3,123 +3,228 @@ import Image from 'next/image';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-6 py-20 overflow-hidden">
-      {/* Animated Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(139,92,246,0.1),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,107,53,0.08),transparent_40%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(34,211,238,0.08),transparent_40%)]" />
+    <section className="relative min-h-screen flex items-center justify-center px-6 py-20 overflow-hidden bg-black">
+      {/* Animated Background Gradients - TRON Style */}
+      <div className="absolute inset-0 bg-black" />
 
-      {/* Grid Pattern Overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:72px_72px] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_80%)]" />
+      {/* Moving gradient orbs */}
+      <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-purple-600/20 rounded-full blur-3xl animate-pulse-slow" />
+      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-orange-500/20 rounded-full blur-3xl animate-pulse-slower" />
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-to-r from-purple-600/10 via-transparent to-orange-500/10 rounded-full blur-3xl animate-spin-slow" />
+
+      {/* Grid overlay - cyberpunk style */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(139,92,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(139,92,246,0.03)_1px,transparent_1px)] bg-[size:50px_50px]" />
+
+      {/* Diagonal moving gradient lines */}
+      <div className="absolute inset-0 overflow-hidden opacity-30">
+        <div className="absolute w-full h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent top-1/4 animate-scan-horizontal" />
+        <div className="absolute w-full h-px bg-gradient-to-r from-transparent via-orange-500 to-transparent top-1/2 animate-scan-horizontal-reverse" />
+        <div className="absolute w-full h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent top-3/4 animate-scan-horizontal-slow" />
+      </div>
 
       <div className="relative z-10 max-w-7xl mx-auto w-full">
         <div className="text-center mb-16">
-          {/* Logo/Brand */}
-          <div className="mb-8 flex flex-col items-center">
+          {/* Logo */}
+          <div className="mb-12 flex flex-col items-center">
             <Image
-              src="/AIVILogo.png"
-              alt="AIVI Logo"
-              width={300}
-              height={125}
+              src="/AIVI-LOGO-W.png"
+              alt="AIVI"
+              width={400}
+              height={167}
               priority
-              className="h-20 md:h-24 w-auto mb-4"
+              className="h-24 md:h-32 w-auto mb-6 drop-shadow-2xl"
             />
-            <div className="h-1 w-24 bg-gradient-to-r from-orange-500 to-cyan-400 mx-auto rounded-full" />
+            <div className="h-px w-48 bg-gradient-to-r from-transparent via-purple-500 to-transparent" />
           </div>
 
-          {/* Main Headline */}
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 max-w-5xl mx-auto">
-            Turn Cold Leads Into Revenue{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">
+          {/* Main Headline - BADASS */}
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-tight mb-8 tracking-tight">
+            Turn Cold Leads Into{' '}
+            <span className="inline-block bg-gradient-to-r from-orange-500 via-purple-500 to-orange-500 text-transparent bg-clip-text animate-gradient-x">
+              Revenue
+            </span>
+            <br />
+            <span className="text-4xl md:text-6xl lg:text-7xl text-white/60">
               In 13 Seconds
             </span>
-          </h2>
+          </h1>
 
           {/* Sub-headline */}
-          <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-6 leading-relaxed">
-            AI-powered voice, SMS, and email that reactivates 50% of dead leads and increases conversions by 391%
+          <p className="text-xl md:text-2xl text-white/70 max-w-4xl mx-auto mb-10 leading-relaxed font-light">
+            AI-powered omnichannel automation that reactivates 50% of dead leads
+            <br className="hidden md:block" />
+            and increases conversions by{' '}
+            <span className="text-orange-500 font-bold">391%</span>
           </p>
 
-          {/* ROI Proof */}
-          <div className="flex flex-wrap justify-center gap-8 mb-8">
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-cyan-400 mb-1">391%</div>
-              <div className="text-sm text-gray-500">Conversion Increase</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-orange-500 mb-1">50%</div>
-              <div className="text-sm text-gray-500">Dead Leads Revived</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-purple-500 mb-1">13s</div>
-              <div className="text-sm text-gray-500">Response Time</div>
-            </div>
+          {/* ROI Stats - Sleek cards */}
+          <div className="flex flex-wrap justify-center gap-6 mb-12">
+            <StatCard number="391%" label="Conversion Increase" color="purple" />
+            <StatCard number="50%" label="Dead Leads Revived" color="orange" />
+            <StatCard number="13s" label="Response Time" color="purple" />
           </div>
 
-          {/* Description */}
-          <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed">
-            Platform + managed service that automates omnichannel outreach the moment a lead enters your CRM.
-            No code required. Live in 48 hours.
-          </p>
-
-          {/* Key Features Pills */}
+          {/* Key Features - NO EMOJIS, sleek icons */}
           <div className="flex flex-wrap justify-center gap-3 mb-16">
-            <FeaturePill icon="🎙️" text="AI Voice" />
-            <FeaturePill icon="💬" text="SMS Automation" />
-            <FeaturePill icon="📧" text="Email Campaigns" />
-            <FeaturePill icon="📄" text="OCR + Document AI" />
-            <FeaturePill icon="🔗" text="CRM Integration" />
-            <FeaturePill icon="👥" text="Agent Coaching" />
-            <FeaturePill icon="🔒" text="Secure PII Handling" />
+            <FeaturePill text="AI Voice" />
+            <FeaturePill text="SMS Automation" />
+            <FeaturePill text="Email Campaigns" />
+            <FeaturePill text="Document AI" />
+            <FeaturePill text="CRM Integration" />
+            <FeaturePill text="Agent Coaching" />
+            <FeaturePill text="Secure PII" />
           </div>
         </div>
 
         {/* Demo Form */}
         <DemoForm />
 
-        {/* Trust Indicators */}
+        {/* Trust Indicators - Sleek */}
         <div className="mt-16 text-center">
-          <p className="text-sm text-gray-500 mb-4">Trusted by leading companies in</p>
-          <div className="flex flex-wrap justify-center gap-6 text-sm font-medium text-gray-400">
-            <span className="px-4 py-2 bg-navy-900/50 rounded-full border border-navy-700">
-              Trucking & Logistics
-            </span>
-            <span className="px-4 py-2 bg-navy-900/50 rounded-full border border-navy-700">
-              Financial Services
-            </span>
-            <span className="px-4 py-2 bg-navy-900/50 rounded-full border border-navy-700">
-              Insurance
-            </span>
-            <span className="px-4 py-2 bg-navy-900/50 rounded-full border border-navy-700">
-              Healthcare
-            </span>
+          <p className="text-sm text-white/40 mb-4 uppercase tracking-wider">Trusted Globally</p>
+          <div className="flex flex-wrap justify-center gap-4 text-sm font-medium text-white/60">
+            <TrustBadge text="Trucking & Logistics" />
+            <TrustBadge text="Financial Services" />
+            <TrustBadge text="Insurance" />
+            <TrustBadge text="Healthcare" />
           </div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <svg
-          className="w-6 h-6 text-gray-500"
-          fill="none"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-        </svg>
-      </div>
+      <style jsx>{`
+        @keyframes gradient-x {
+          0%, 100% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+        }
+
+        @keyframes pulse-slow {
+          0%, 100% {
+            opacity: 0.2;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 0.3;
+            transform: scale(1.1);
+          }
+        }
+
+        @keyframes pulse-slower {
+          0%, 100% {
+            opacity: 0.15;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 0.25;
+            transform: scale(1.15);
+          }
+        }
+
+        @keyframes spin-slow {
+          from {
+            transform: translate(-50%, -50%) rotate(0deg);
+          }
+          to {
+            transform: translate(-50%, -50%) rotate(360deg);
+          }
+        }
+
+        @keyframes scan-horizontal {
+          0% {
+            transform: translateY(-100vh);
+          }
+          100% {
+            transform: translateY(100vh);
+          }
+        }
+
+        @keyframes scan-horizontal-reverse {
+          0% {
+            transform: translateY(100vh);
+          }
+          100% {
+            transform: translateY(-100vh);
+          }
+        }
+
+        @keyframes scan-horizontal-slow {
+          0% {
+            transform: translateY(-100vh);
+          }
+          100% {
+            transform: translateY(100vh);
+          }
+        }
+
+        .animate-gradient-x {
+          background-size: 200% 200%;
+          animation: gradient-x 3s ease infinite;
+        }
+
+        .animate-pulse-slow {
+          animation: pulse-slow 8s ease-in-out infinite;
+        }
+
+        .animate-pulse-slower {
+          animation: pulse-slower 10s ease-in-out infinite;
+        }
+
+        .animate-spin-slow {
+          animation: spin-slow 20s linear infinite;
+        }
+
+        .animate-scan-horizontal {
+          animation: scan-horizontal 8s linear infinite;
+        }
+
+        .animate-scan-horizontal-reverse {
+          animation: scan-horizontal-reverse 10s linear infinite;
+        }
+
+        .animate-scan-horizontal-slow {
+          animation: scan-horizontal-slow 12s linear infinite;
+        }
+      `}</style>
     </section>
   );
 }
 
-function FeaturePill({ icon, text }: { icon: string; text: string }) {
+interface StatCardProps {
+  number: string;
+  label: string;
+  color: 'purple' | 'orange';
+}
+
+function StatCard({ number, label, color }: StatCardProps) {
+  const gradient = color === 'purple'
+    ? 'from-purple-600 to-purple-800'
+    : 'from-orange-500 to-orange-700';
+
   return (
-    <span className="inline-flex items-center gap-2 px-4 py-2 bg-navy-800/60 backdrop-blur-sm border border-navy-600 rounded-full text-sm font-medium text-gray-300 hover:border-cyan-400/50 hover:bg-navy-800 transition-all">
-      <span className="text-lg">{icon}</span>
+    <div className={`relative p-6 bg-gradient-to-br ${gradient} rounded-xl border border-white/10 backdrop-blur-sm min-w-[140px] group hover:scale-105 transition-transform`}>
+      <div className="absolute inset-0 bg-white/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+      <div className="relative">
+        <div className="text-4xl md:text-5xl font-black text-white mb-1">{number}</div>
+        <div className="text-xs text-white/80 uppercase tracking-wider">{label}</div>
+      </div>
+    </div>
+  );
+}
+
+function FeaturePill({ text }: { text: string }) {
+  return (
+    <span className="px-5 py-2.5 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-sm font-medium text-white/90 hover:bg-white/10 hover:border-purple-500/50 transition-all cursor-default">
+      {text}
+    </span>
+  );
+}
+
+function TrustBadge({ text }: { text: string }) {
+  return (
+    <span className="px-4 py-2 bg-white/5 rounded-lg border border-white/10 hover:border-purple-500/30 transition-colors">
       {text}
     </span>
   );
