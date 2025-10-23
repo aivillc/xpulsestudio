@@ -1,4 +1,5 @@
 import DemoForm from './DemoForm';
+import Image from 'next/image';
 
 export default function Hero() {
   return (
@@ -15,10 +16,15 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto w-full">
         <div className="text-center mb-16">
           {/* Logo/Brand */}
-          <div className="mb-8">
-            <h1 className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-purple-500 to-cyan-400 mb-2">
-              AIVI
-            </h1>
+          <div className="mb-8 flex flex-col items-center">
+            <Image
+              src="/AIVILogo.png"
+              alt="AIVI Logo"
+              width={300}
+              height={125}
+              priority
+              className="h-20 md:h-24 w-auto mb-4"
+            />
             <div className="h-1 w-24 bg-gradient-to-r from-orange-500 to-cyan-400 mx-auto rounded-full" />
           </div>
 

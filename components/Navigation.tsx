@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,9 +27,14 @@ export default function Navigation() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-cyan-400">
-              AIVI
-            </span>
+            <Image
+              src="/AIVILogo.png"
+              alt="AIVI Logo"
+              width={120}
+              height={50}
+              priority
+              className="h-8 w-auto"
+            />
           </div>
 
           {/* Desktop Navigation */}
