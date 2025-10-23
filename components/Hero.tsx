@@ -24,21 +24,37 @@ export default function Hero() {
 
           {/* Main Headline */}
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 max-w-5xl mx-auto">
-            Proactive AI for{' '}
+            Turn Cold Leads Into Revenue{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">
-              Customer Experience
+              In 13 Seconds
             </span>
           </h2>
 
           {/* Sub-headline */}
           <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-6 leading-relaxed">
-            CRM Triggers, Voice, SMS, Email & Document Intelligence
+            AI-powered voice, SMS, and email that reactivates 50% of dead leads and increases conversions by 391%
           </p>
+
+          {/* ROI Proof */}
+          <div className="flex flex-wrap justify-center gap-8 mb-8">
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-cyan-400 mb-1">391%</div>
+              <div className="text-sm text-gray-500">Conversion Increase</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-orange-500 mb-1">50%</div>
+              <div className="text-sm text-gray-500">Dead Leads Revived</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-purple-500 mb-1">13s</div>
+              <div className="text-sm text-gray-500">Response Time</div>
+            </div>
+          </div>
 
           {/* Description */}
           <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed">
-            From lead to close: a unified platform and managed service that automates voice, text,
-            document interpretation and CRM integration — designed for industries like trucking, finance, and more.
+            Platform + managed service that automates omnichannel outreach the moment a lead enters your CRM.
+            No code required. Live in 48 hours.
           </p>
 
           {/* Key Features Pills */}

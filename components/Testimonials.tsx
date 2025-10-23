@@ -18,11 +18,11 @@ export default function Testimonials() {
         {/* Testimonials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           <TestimonialCard
-            quote="AIVI revived 50% of our inactive leads and generated immediate responses. The multi-channel approach is game-changing for our trucking business."
-            author="Sarah Martinez"
-            role="VP of Operations"
-            company="FreightWorks Logistics"
-            industry="Trucking"
+            quote="AIVI successfully grew our lead remarketing campaigns. From 1 in 5 using email to almost 1 in 2 using their AI SMS. Increasing our conversion rate by 120%."
+            author="Marketing Director"
+            role="Lead Generation Manager"
+            company="AIVI Client"
+            industry="Lead Generation"
           />
           <TestimonialCard
             quote="The document intelligence feature alone saved us 20 hours per week. OCR + LLM automatically processes invoices and updates our CRM."
@@ -42,10 +42,10 @@ export default function Testimonials() {
 
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-          <StatCard number="50%" label="Lead Reactivation Rate" />
-          <StatCard number="35%" label="Increase in Conversions" />
-          <StatCard number="20hrs" label="Saved Per Week" />
-          <StatCard number="1.2s" label="Avg Response Time" />
+          <StatCard number="50%" label="Dead Leads Revived" />
+          <StatCard number="391%" label="Conversion Increase" />
+          <StatCard number="120%" label="Client ROI Boost" />
+          <StatCard number="13s" label="Response Time" />
         </div>
 
         {/* Security & Compliance */}

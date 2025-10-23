@@ -26,12 +26,53 @@ export default function DemoForm() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API call - will be replaced with real n8n endpoint
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setShowDemo(true);
-      startDemoSequence();
-    }, 1000);
+    // n8n webhook integration
+    const n8nWebhook = process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL;
+
+    if (n8nWebhook) {
+      // Real API call to n8n
+      try {
+        const response = await fetch(n8nWebhook, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            email: formData.email,
+            company: formData.company,
+            needs: formData.needs,
+            timestamp: new Date().toISOString(),
+          }),
+        });
+
+        if (response.ok) {
+          setIsSubmitting(false);
+          setShowDemo(true);
+          startDemoSequence();
+        } else {
+          console.error('n8n webhook failed:', response.statusText);
+          // Still show demo even if webhook fails
+          setIsSubmitting(false);
+          setShowDemo(true);
+          startDemoSequence();
+        }
+      } catch (error) {
+        console.error('Error calling n8n webhook:', error);
+        // Still show demo even if webhook fails
+        setIsSubmitting(false);
+        setShowDemo(true);
+        startDemoSequence();
+      }
+    } else {
+      // Mock demo (no webhook configured)
+      setTimeout(() => {
+        setIsSubmitting(false);
+        setShowDemo(true);
+        startDemoSequence();
+      }, 1000);
+    }
   };
 
   const startDemoSequence = () => {

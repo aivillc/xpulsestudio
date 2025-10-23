@@ -1,5 +1,6 @@
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
+import PainPoints from '@/components/PainPoints';
 import Features from '@/components/Features';
 import Solutions from '@/components/Solutions';
 import Integrations from '@/components/Integrations';
@@ -12,6 +13,7 @@ export default function Home() {
     <main className="min-h-screen bg-navy-950">
       <Navigation />
       <Hero />
+      <PainPoints />
       <Features />
       <Solutions />
       <Integrations />

@@ -48,57 +48,48 @@ npm start
 
 Visit [http://localhost:3000](http://localhost:3000) to view the site.
 
-## API Integration
+## n8n Webhook Integration
 
-### Demo Form Integration
+### Quick Setup (2 Steps)
 
-The demo form is currently set up with mock animations. To connect it to your **n8n backend**:
+The demo form is **already configured** to work with your n8n webhook. Just add your webhook URL:
 
-**Update the API endpoint** in `components/DemoForm.tsx` around line 24:
+**Step 1: Create `.env.local` file** in the project root:
 
-```typescript
-// Replace the mock setTimeout with actual API call:
-try {
-  const response = await fetch('YOUR_N8N_WEBHOOK_URL', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      firstName: formData.firstName,
-      lastName: formData.lastName,
-      email: formData.email,
-      company: formData.company,
-      needs: formData.needs,
-    }),
-  });
+```bash
+NEXT_PUBLIC_N8N_WEBHOOK_URL=https://stage.aivi.io/webhook/YOUR_WEBHOOK_ID
+```
 
-  if (response.ok) {
-    setIsSubmitting(false);
-    setShowDemo(true);
-    startDemoSequence();
-  }
-} catch (error) {
-  console.error('Error:', error);
-  setIsSubmitting(false);
+**Step 2: Deploy to Vercel**
+
+Add the environment variable in Vercel:
+1. Go to your project settings
+2. Navigate to "Environment Variables"
+3. Add `NEXT_PUBLIC_N8N_WEBHOOK_URL` with your webhook URL
+4. Redeploy
+
+### How It Works
+
+When a user submits the demo form, the data is sent to your n8n webhook:
+
+```json
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john@example.com",
+  "company": "Acme Corp",
+  "needs": "Lead qualification automation",
+  "timestamp": "2025-10-23T00:00:00.000Z"
 }
 ```
 
-**Environment Variables** (recommended):
+Your n8n workflow should:
+1. Receive the form data
+2. Create/update lead in HubSpot CRM
+3. Trigger multi-channel outreach (SMS, voice, email)
+4. Return 200 OK status
 
-Create a `.env.local` file:
-
-```bash
-NEXT_PUBLIC_N8N_WEBHOOK_URL=https://your-n8n-instance.com/webhook/demo
-```
-
-Then update the code to use:
-
-```typescript
-const response = await fetch(process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL!, {
-  // ... rest of code
-});
-```
+**Note**: The demo visualization will show regardless of webhook response, ensuring a smooth user experience even if the webhook is down.
 
 ### Expected n8n Workflow
 
