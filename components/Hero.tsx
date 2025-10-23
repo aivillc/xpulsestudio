@@ -1,3 +1,5 @@
+'use client';
+
 import DemoForm from './DemoForm';
 import Image from 'next/image';
 
