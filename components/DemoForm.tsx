@@ -102,39 +102,39 @@ export default function DemoForm() {
   if (showDemo) {
     return (
       <div className="w-full max-w-4xl mx-auto">
-        <div className="bg-navy-900/50 backdrop-blur-sm border border-navy-700 rounded-2xl p-8">
-          <h3 className="text-2xl font-bold text-white mb-6 text-center">
+        <div className="bg-white/5 backdrop-blur-sm border-2 border-white/10 rounded-2xl p-8">
+          <h3 className="text-2xl font-black text-white mb-6 text-center">
             Watch AIVI in Action - Multi-Channel Demo
           </h3>
-          <p className="text-gray-300 text-center mb-8">
+          <p className="text-white/70 text-center mb-8">
             Hi {formData.firstName}! We're demonstrating our AI capabilities across multiple channels simultaneously.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* SMS Demo */}
             <DemoCard
-              title="📱 SMS Message"
+              title="SMS Message"
               status={demoStage >= 1 ? 'complete' : 'pending'}
               content={`Hi ${formData.firstName}, this is AIVI! We're reaching out from ${formData.company} to showcase our multi-channel capabilities. Check your phone!`}
             />
 
             {/* Voice Call Demo */}
             <DemoCard
-              title="📞 Voice Call"
+              title="Voice Call"
               status={demoStage >= 2 ? 'complete' : demoStage === 1 ? 'in-progress' : 'pending'}
               content={`Calling ${formData.firstName} at your phone number to deliver a personalized AI voice message about ${formData.needs}.`}
             />
 
             {/* Email Demo */}
             <DemoCard
-              title="📧 Email"
+              title="Email"
               status={demoStage >= 3 ? 'complete' : demoStage === 2 ? 'in-progress' : 'pending'}
               content={`Sending personalized email to ${formData.email} with detailed information about how AIVI can help with ${formData.needs}.`}
             />
 
             {/* Document Intelligence Demo */}
             <DemoCard
-              title="📄 Document AI"
+              title="Document AI"
               status={demoStage >= 4 ? 'complete' : demoStage === 3 ? 'in-progress' : 'pending'}
               content="OCR + LLM analyzing uploaded documents, extracting data, and updating your CRM automatically."
             />
@@ -153,7 +153,7 @@ export default function DemoForm() {
                   needs: '',
                 });
               }}
-              className="px-6 py-3 bg-navy-800 text-white rounded-lg hover:bg-navy-700 transition-colors"
+              className="px-6 py-3 bg-white/5 border-2 border-white/10 text-white rounded-lg hover:bg-white/10 hover:border-purple-500/50 transition-all font-bold"
             >
               Try Another Demo
             </button>
@@ -165,17 +165,17 @@ export default function DemoForm() {
 
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-2xl mx-auto">
-      <div className="bg-navy-900/50 backdrop-blur-sm border border-navy-700 rounded-2xl p-8 shadow-2xl">
-        <h3 className="text-2xl font-bold text-white mb-6 text-center">
+      <div className="bg-white/5 backdrop-blur-sm border-2 border-white/10 rounded-2xl p-8 shadow-2xl hover:border-purple-500/30 transition-all">
+        <h3 className="text-2xl font-black text-white mb-6 text-center">
           Experience AIVI Live
         </h3>
-        <p className="text-gray-300 text-center mb-8">
+        <p className="text-white/70 text-center mb-8">
           Fill out the form below and watch our AI engage you across multiple channels in real-time
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           <div>
-            <label htmlFor="firstName" className="block text-sm font-medium text-gray-300 mb-2">
+            <label htmlFor="firstName" className="block text-sm font-bold text-white/80 mb-2">
               First Name *
             </label>
             <input
@@ -185,13 +185,13 @@ export default function DemoForm() {
               required
               value={formData.firstName}
               onChange={handleChange}
-              className="w-full px-4 py-3 bg-navy-800 border border-navy-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all"
+              className="w-full px-4 py-3 bg-white/5 border-2 border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
               placeholder="John"
             />
           </div>
 
           <div>
-            <label htmlFor="lastName" className="block text-sm font-medium text-gray-300 mb-2">
+            <label htmlFor="lastName" className="block text-sm font-bold text-white/80 mb-2">
               Last Name *
             </label>
             <input
@@ -201,14 +201,14 @@ export default function DemoForm() {
               required
               value={formData.lastName}
               onChange={handleChange}
-              className="w-full px-4 py-3 bg-navy-800 border border-navy-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all"
+              className="w-full px-4 py-3 bg-white/5 border-2 border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
               placeholder="Doe"
             />
           </div>
         </div>
 
         <div className="mb-6">
-          <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+          <label htmlFor="email" className="block text-sm font-bold text-white/80 mb-2">
             Email Address *
           </label>
           <input
@@ -218,13 +218,13 @@ export default function DemoForm() {
             required
             value={formData.email}
             onChange={handleChange}
-            className="w-full px-4 py-3 bg-navy-800 border border-navy-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all"
+            className="w-full px-4 py-3 bg-white/5 border-2 border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
             placeholder="john@company.com"
           />
         </div>
 
         <div className="mb-6">
-          <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-2">
+          <label htmlFor="company" className="block text-sm font-bold text-white/80 mb-2">
             Company Name *
           </label>
           <input
@@ -234,13 +234,13 @@ export default function DemoForm() {
             required
             value={formData.company}
             onChange={handleChange}
-            className="w-full px-4 py-3 bg-navy-800 border border-navy-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all"
+            className="w-full px-4 py-3 bg-white/5 border-2 border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
             placeholder="Acme Corp"
           />
         </div>
 
         <div className="mb-6">
-          <label htmlFor="needs" className="block text-sm font-medium text-gray-300 mb-2">
+          <label htmlFor="needs" className="block text-sm font-bold text-white/80 mb-2">
             What are you looking for? *
           </label>
           <textarea
@@ -250,7 +250,7 @@ export default function DemoForm() {
             rows={3}
             value={formData.needs}
             onChange={handleChange}
-            className="w-full px-4 py-3 bg-navy-800 border border-navy-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all resize-none"
+            className="w-full px-4 py-3 bg-white/5 border-2 border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all resize-none"
             placeholder="e.g., Lead qualification, invoice factoring automation, customer engagement..."
           />
         </div>
@@ -258,7 +258,7 @@ export default function DemoForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full py-4 px-6 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold rounded-lg shadow-lg transition-all transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+          className="w-full py-4 px-6 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-black rounded-lg shadow-2xl transition-all transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 uppercase tracking-wider"
         >
           {isSubmitting ? (
             <span className="flex items-center justify-center">
@@ -273,7 +273,7 @@ export default function DemoForm() {
           )}
         </button>
 
-        <p className="text-xs text-gray-500 text-center mt-4">
+        <p className="text-xs text-white/40 text-center mt-4">
           By submitting, you'll receive a real-time demonstration via SMS, voice call, and email
         </p>
       </div>
@@ -291,21 +291,21 @@ function DemoCard({ title, status, content }: DemoCardProps) {
   return (
     <div className={`relative p-6 rounded-xl border-2 transition-all ${
       status === 'complete'
-        ? 'bg-cyan-400/10 border-cyan-400'
+        ? 'bg-purple-500/10 border-purple-500'
         : status === 'in-progress'
         ? 'bg-orange-500/10 border-orange-500 animate-pulse'
-        : 'bg-navy-800/30 border-navy-600'
+        : 'bg-white/5 border-white/10'
     }`}>
       <div className="flex items-center justify-between mb-3">
-        <h4 className="text-lg font-semibold text-white">{title}</h4>
+        <h4 className="text-lg font-black text-white">{title}</h4>
         {status === 'complete' && (
-          <span className="text-cyan-400 text-2xl">✓</span>
+          <span className="text-purple-400 text-2xl font-black">✓</span>
         )}
         {status === 'in-progress' && (
           <div className="w-6 h-6 border-3 border-orange-500 border-t-transparent rounded-full animate-spin" />
         )}
       </div>
-      <p className="text-sm text-gray-300">{content}</p>
+      <p className="text-sm text-white/70">{content}</p>
     </div>
   );
 }

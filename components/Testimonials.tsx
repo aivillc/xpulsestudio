@@ -1,16 +1,19 @@
 export default function Testimonials() {
   return (
-    <section className="relative py-24 px-6 bg-navy-950">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative py-24 px-6 bg-black">
+      {/* Subtle grid overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(139,92,246,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(139,92,246,0.02)_1px,transparent_1px)] bg-[size:50px_50px]" />
+
+      <div className="relative max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
             Trusted by{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-purple-500">
+            <span className="bg-gradient-to-r from-orange-500 to-purple-600 text-transparent bg-clip-text">
               Industry Leaders
             </span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-xl text-white/60 max-w-3xl mx-auto">
             See how AIVI transforms customer engagement across industries
           </p>
         </div>
@@ -23,6 +26,7 @@ export default function Testimonials() {
             role="Lead Generation Manager"
             company="AIVI Client"
             industry="Lead Generation"
+            color="purple"
           />
           <TestimonialCard
             quote="The document intelligence feature alone saved us 20 hours per week. OCR + LLM automatically processes invoices and updates our CRM."
@@ -30,6 +34,7 @@ export default function Testimonials() {
             role="Director of Finance"
             company="Capital Solutions Group"
             industry="Financial Services"
+            color="orange"
           />
           <TestimonialCard
             quote="Their managed service team had us up and running in 48 hours. The ROI was immediate—we saw 35% increase in policy renewals."
@@ -37,15 +42,16 @@ export default function Testimonials() {
             role="Chief Marketing Officer"
             company="Shield Insurance Partners"
             industry="Insurance"
+            color="purple"
           />
         </div>
 
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-          <StatCard number="50%" label="Dead Leads Revived" />
-          <StatCard number="391%" label="Conversion Increase" />
-          <StatCard number="120%" label="Client ROI Boost" />
-          <StatCard number="13s" label="Response Time" />
+          <StatCard number="50%" label="Dead Leads Revived" color="purple" />
+          <StatCard number="391%" label="Conversion Increase" color="orange" />
+          <StatCard number="120%" label="Client ROI Boost" color="purple" />
+          <StatCard number="13s" label="Response Time" color="orange" />
         </div>
 
         {/* Security & Compliance */}
@@ -73,46 +79,69 @@ interface TestimonialCardProps {
   role: string;
   company: string;
   industry: string;
+  color: 'purple' | 'orange';
 }
 
-function TestimonialCard({ quote, author, role, company, industry }: TestimonialCardProps) {
+function TestimonialCard({ quote, author, role, company, industry, color }: TestimonialCardProps) {
+  const gradient = color === 'purple'
+    ? 'from-purple-500 to-purple-700'
+    : 'from-orange-500 to-orange-700';
+  const borderColor = color === 'purple' ? 'border-purple-500/30' : 'border-orange-500/30';
+  const hoverBorder = color === 'purple' ? 'hover:border-purple-500/70' : 'hover:border-orange-500/70';
+  const badgeBg = color === 'purple' ? 'bg-purple-500/10' : 'bg-orange-500/10';
+  const badgeBorder = color === 'purple' ? 'border-purple-500/30' : 'border-orange-500/30';
+  const badgeText = color === 'purple' ? 'text-purple-400' : 'text-orange-400';
+
   return (
-    <div className="p-8 bg-navy-900/50 backdrop-blur-sm border border-navy-700 rounded-2xl hover:border-purple-500/50 transition-all">
-      <div className="text-purple-400 text-4xl mb-4">"</div>
-      <p className="text-gray-300 mb-6 leading-relaxed">{quote}</p>
-      <div className="flex items-center gap-4">
-        <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
-          {author.charAt(0)}
+    <div className={`relative p-8 bg-white/5 backdrop-blur-sm border-2 ${borderColor} ${hoverBorder} rounded-2xl transition-all hover:shadow-2xl`}>
+      <div className={`absolute top-0 left-0 w-1 h-full bg-gradient-to-b ${gradient} rounded-l-2xl`} />
+      <div className="pl-4">
+        <div className={`${color === 'purple' ? 'text-purple-400' : 'text-orange-400'} text-5xl font-bold mb-4 leading-none`}>"</div>
+        <p className="text-white/80 mb-6 leading-relaxed">{quote}</p>
+        <div className="flex items-center gap-4 mb-4">
+          <div className={`w-12 h-12 bg-gradient-to-br ${gradient} rounded-full flex items-center justify-center text-white font-black text-lg`}>
+            {author.charAt(0)}
+          </div>
+          <div>
+            <div className="text-white font-bold">{author}</div>
+            <div className="text-sm text-white/60">{role}</div>
+            <div className="text-sm text-white/40">{company}</div>
+          </div>
         </div>
-        <div>
-          <div className="text-white font-semibold">{author}</div>
-          <div className="text-sm text-gray-400">{role}</div>
-          <div className="text-sm text-gray-500">{company}</div>
+        <div className={`inline-block px-3 py-1 ${badgeBg} border ${badgeBorder} rounded-full text-xs ${badgeText} font-medium`}>
+          {industry}
         </div>
-      </div>
-      <div className="mt-4 inline-block px-3 py-1 bg-cyan-400/10 border border-cyan-400/30 rounded-full text-xs text-cyan-400">
-        {industry}
       </div>
     </div>
   );
 }
 
-function StatCard({ number, label }: { number: string; label: string }) {
+interface StatCardProps {
+  number: string;
+  label: string;
+  color: 'purple' | 'orange';
+}
+
+function StatCard({ number, label, color }: StatCardProps) {
+  const gradient = color === 'purple'
+    ? 'from-purple-500 to-purple-700'
+    : 'from-orange-500 to-orange-700';
+
   return (
-    <div className="text-center p-6 bg-navy-900/50 border border-navy-700 rounded-xl">
-      <div className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500 mb-2">
+    <div className="text-center p-6 bg-white/5 border-2 border-white/10 rounded-xl hover:border-purple-500/50 transition-all">
+      <div className={`text-4xl md:text-5xl font-black bg-gradient-to-r ${gradient} text-transparent bg-clip-text mb-2`}>
         {number}
       </div>
-      <div className="text-sm text-gray-400">{label}</div>
+      <div className="text-sm text-white/60 font-medium">{label}</div>
     </div>
   );
 }
 
 function ComplianceBadge({ text }: { text: string }) {
   return (
-    <div className="flex items-center gap-2 px-4 py-3 bg-navy-900/50 border border-green-500/30 rounded-lg">
-      <span className="text-green-400 text-lg">✓</span>
-      <span className="text-gray-300 font-medium">{text}</span>
+    <div className="flex items-center gap-2 px-4 py-3 bg-white/5 border-2 border-green-500/30 rounded-lg hover:border-green-500/50 transition-all">
+      <span className="text-green-400 text-lg font-black">✓</span>
+      <span className="text-white/80 font-medium">{text}</span>
     </div>
   );
 }
