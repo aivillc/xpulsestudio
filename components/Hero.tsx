@@ -64,6 +64,7 @@ export default function Hero() {
             <FeaturePill icon="📧" text="Email Campaigns" />
             <FeaturePill icon="📄" text="OCR + Document AI" />
             <FeaturePill icon="🔗" text="CRM Integration" />
+            <FeaturePill icon="👥" text="Agent Coaching" />
             <FeaturePill icon="🔒" text="Secure PII Handling" />
           </div>
         </div>
